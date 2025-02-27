@@ -20,6 +20,8 @@ repositories {
     mavenCentral()
     maven { url = 'https://nexus.c0d3m4513r.com/Ketting/' }
     maven { url = 'https://nexus.c0d3m4513r.com/Forge/' }
+    maven { url = 'https://repo.kettingpowered.org/Ketting' }
+    maven { url = 'https://repo.kettingpowered.org/Forge' }
 //    mavenLocal()
 }
 
@@ -36,7 +38,7 @@ configurations {
 
 dependencies {
     compileOnly 'org.jetbrains:annotations:24.0.0'
-    implementation 'org.kettingpowered:kettingcommon:2.3.3'
+    implementation 'org.kettingpowered:kettingcommon:2.4.1'
     implementation 'com.google.code.gson:gson:2.10.1' //Used in Patcher
     implementation 'me.tongfei:progressbar:0.10.0' //Used to display progress
     implementation 'org.kettingpowered:terminal-colors:1.0.2' //Used for progress bar, and terminal colors
@@ -47,7 +49,7 @@ dependencies {
 
     //Used in Processors
     implementation 'net.minecraftforge:binarypatcher:1.2.0:fatjar'
-    implementation 'net.minecraftforge:installertools:1.4.0'
+    implementation 'net.minecraftforge:installertools:1.4.3'
     implementation 'net.minecraftforge:jarsplitter:1.1.4'
     implementation 'net.minecraftforge:ForgeAutoRenamingTool:1.0.6'
     implementation 'org.jetbrains:annotations:24.0.0'
@@ -129,6 +131,14 @@ publishing {
                 password = System.getenv("KETTINGPASSWORD")
             }
             url = "https://reposilite.c0d3m4513r.com/Ketting/"
+        }
+        maven {
+            name = 'kettingRepo-backup'
+            credentials {
+                username = System.getenv("KETTINGUSERNAME")
+                password = System.getenv("KETTINGPASSWORD")
+            }
+            url = "https://repo.kettingpowered.org/Ketting/"
         }
     }
 }
